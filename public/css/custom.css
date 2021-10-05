@@ -1,0 +1,61 @@
+.user-profile {
+	min-width: 42px !important;
+}
+
+.display-flex {
+	display: flex;
+}
+
+.select-form {
+	width: 100%;
+	border-radius: 100px;
+	padding-top: inherit;
+	height: 45px !important;
+}
+
+.nice-select .list {
+	width: 100%;
+	border-radius: 18px;
+}
+
+.padding-8 {
+	padding: 8px !important;
+}
+
+.margin-left-25 {
+    margin-left: 25px;
+}
+.custom-input {
+    margin-bottom: 24px;
+}
+.remove-margin-buttom {
+    margin-bottom: 0px !important;
+}
+
+.error-label {
+    font-size: smaller !important;
+    color: #C0392B !important;
+}
+
+.error-input {
+    border: 2px solid #CA5448 !important;
+    box-shadow: 0 0 15px -6px #c0392b7a !important;
+}
+
+
+.navbar-nav .dropdown-menu {
+    position: absolute !important;
+}
+
+.form-check{
+	text-align: end;
+}
+.right{
+	text-align: right;
+}
+.txtleft{
+	text-align: left;
+}
+.left{
+	margin-left: 20%;
+}
