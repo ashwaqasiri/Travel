@@ -30,10 +30,11 @@
               <div class="post-social-share d-flex align-items-center flex-wrap">
                 <h4 class="post-social-share__title mb-0">Share:</h4>
                 <ul class="social-share list-unstyled mb-0">
-                  <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                  {!!$shareButtons!!}
+                  <!-- <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                   <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
                   <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                  <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                  <li><a href="#"><i class="fab fa-twitter"></i></a></li> -->
                 </ul>
               </div>
               <div class="next-prev-btn d-flex align-items-center justify-content-between">
@@ -131,7 +132,7 @@
               <!--/ .Single Widgets -->
               <!-- Single Widgets -->
               <div class="sidebar__ads">
-                <a href="#"><img class="w-100" src="./image/png/ads-img.png" alt=""></a>
+              <a href="#"><img class="w-100" src="./image/png/ads-img.png" alt=""></a>
               </div>
             </div>
             <!--/ .Single Widgets -->
@@ -140,5 +141,6 @@
       </div>
     </div>
     <!--/ .Blog Details Area -->
+    <!-- Comment Section -->
     @livewire('comment-controller',['id' => $blog->id])
 @endsection

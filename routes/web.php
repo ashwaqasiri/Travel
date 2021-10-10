@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SocialShareController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,7 @@ Route::resource('blogs', "App\Http\Controllers\Blog\BlogController");
 
 Route::resource('category', "App\Http\Controllers\Admin\CategoryController");
 
+Route::get('social-share', [SocialShareController::class, 'index']);
 
 
 

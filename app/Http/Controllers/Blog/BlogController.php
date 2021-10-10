@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Blog;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\Blog;
 use App\Models\City;
@@ -24,11 +24,9 @@ class BlogController extends Controller
     public function index()
     {   //show My Blogs (:
         $user = Auth::user();
-       if ($user) {
-        //     $user = Blog::with('user')->get();
-        //    dd($user->blogs->title);
+       if ($user) 
             return view('user.blogs',compact('user'));
-       }
+       
         return redirect("login")->withSuccess('You are not allowed to access');
     }
 
@@ -39,9 +37,16 @@ class BlogController extends Controller
      */
     public function create()
     {
-        $cities = City::get();
-        $categories = Category::get();
-        return view('blog.create',compact('cities','categories'));
+        if(Auth::check())
+        {
+            $cities = City::get();
+            $categories = Category::get();
+            return view('blog.create',compact('cities','categories'));
+        }
+        else
+        {
+            return redirect("login")->withInfo('You have to login');
+        }
     }
 
     /**
@@ -76,26 +81,19 @@ class BlogController extends Controller
             })
             ->save($destinationPath.'/'.$input['img']);
         }
-        // $data = 
-        // [
-        //     'id' => $uuid,
-        //     'title'=> $request->title,
-        //     'img' => $imgFile ?? $request->img,
-        //     'city_id' => $request->city_id,
-        //     'user_id' => $user->id,
-        //     'description' => $request->description
-        // ];
+
         $blog = Blog::create([
+            
             'title'=> $request->title,
             'img' => $input['img'] ?? $request->img,
             'city_id' => $request->city_id,
             'user_id' => $user->id,
             'description' => $request->description
         ]);
+
         $categories = $request->get('categories');
         foreach ($categories as $value) {
-            //dd($value);
-            $blog->fresh()->categories()->attach($value);
+            $blog->refresh()->categories()->attach($value);
         }
         return redirect()->route("blogs.index")->withSuccess('You have created new blog');
     }
@@ -111,8 +109,19 @@ class BlogController extends Controller
         $blog = Blog::findOrFail($id);
         $categories = Category::get();
         $blogCategory = $blog->categories()->pluck('category_id')->toArray();
-        // dd($bolgCategory);
-        return view('blog.blogDetails',compact('blog','categories','blogCategory'));
+        // social media
+        // dd(url()->current());
+        $shareButtons = \Share::page(
+            url()->current(),
+        )
+        ->facebook()
+        ->twitter()
+        ->linkedin()
+        ->telegram()
+        ->whatsapp()        
+        ->reddit();
+
+        return view('blog.blogDetails',compact('blog','categories','blogCategory','shareButtons'));
     }
 
     // show recent blogs
