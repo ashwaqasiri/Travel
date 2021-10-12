@@ -39,7 +39,7 @@ class CityController extends Controller
      */
     public function store(Request $request)
     {
-        $uuid = Str::uuid()->toString();
+
         $this->validate($request, [
             'name' => 'required',
             'region' => 'required',
@@ -59,7 +59,6 @@ class CityController extends Controller
         ->save($destinationPath.'/'.$input['image']);
 
         $city = City::create([
-            'id' => $uuid,
             'name'=> $request->name,
             'image' => $input['image'] ?? $request->image,
             'region' => $request->region,

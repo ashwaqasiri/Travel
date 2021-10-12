@@ -28,19 +28,26 @@ class CommentController extends Component
 
     public function addComment()
     {
+      if(Auth::check())
+      {
 
-      $this->validate([
-        'comment' => 'required'
-      ]);
-      
-      $newComment = Comment::create([
-        'user_id' => Auth::user()->id,
-        'blog_id' => $this->blog->id,
-        'comment' => $this->comment
-      ]);
+        $this->validate([
+          'comment' => 'required'
+        ]);
+        
+        $newComment = Comment::create([
+          'user_id' => Auth::user()->id,
+          'blog_id' => $this->blog->id,
+          'comment' => $this->comment
+        ]);
 
-      $this->comments->push($newComment);
-      $this->comment = '';
+        $this->comments->push($newComment);
+        $this->comment = '';
+      }
+      else {
+        //guest
+        return redirect(route('login'));
+      }
     }
 
     public function render()

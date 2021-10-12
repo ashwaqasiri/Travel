@@ -109,6 +109,7 @@ class BlogController extends Controller
         $blog = Blog::findOrFail($id);
         $categories = Category::get();
         $blogCategory = $blog->categories()->pluck('category_id')->toArray();
+        $recentBlogs = Blog::orderBy('created_at', 'desc')->take(5)->get();
         // social media
         // dd(url()->current());
         $shareButtons = \Share::page(
@@ -121,7 +122,7 @@ class BlogController extends Controller
         ->whatsapp()        
         ->reddit();
 
-        return view('blog.blogDetails',compact('blog','categories','blogCategory','shareButtons'));
+        return view('blog.blogDetails',compact('blog','categories','blogCategory','recentBlogs','shareButtons'));
     }
 
     // show recent blogs
