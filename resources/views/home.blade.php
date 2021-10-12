@@ -100,27 +100,31 @@
         </div>
         <div class="row justify-content-center" data-aos="fade-up" data-aos-duration="500" data-aos-delay="500" data-aos-once="true">
           <!--/ .Single Blogs -->
+          @foreach($recentBlogs as $blog)
           <div class="col-lg-4 col-md-6 col-xs-10">
             <div class="blogs-post blogs-post--small">
-              <img class="w-100" src="./image/home-8/blogs-img-1.png" alt="">
+              <img class="w-100 h-75" src="{{ asset('thumbnail/'.$blog->img); }}" alt="">
               <div class="hover-content">
                 <div class="hover-content__top d-flex align-items-center dark-mode-texts">
-                  <a href="/blog-details.html" class="hover-content__badge badge bg-yellow text-shark">Gadgets</a>
-                  <a href="/blog-details.html" class="hover-content__date">01 June, 2020</a>
+                  @foreach($blog->categories as $category)
+                  <a href="{{route('blogs.show',$blog->id)}}" class="hover-content__badge badge bg-yellow text-shark">{{$category->name}}</a>
+                  @endforeach
+                  <a href="{{route('blogs.show',$blog->id)}}" class="hover-content__date">{{ \Carbon\Carbon::parse($blog->created_at)->diffForHumans() }}</a>
                 </div>
-                <a href="/blog-details.html" class="hover-content__title">We can blend colors multiple<br class='d-none d-xs-block'> ways, the most common</a>
+                <a href="{{route('blogs.show',$blog->id)}}" class="hover-content__title">{{$blog->title}}</a>
                 <ul class="hover-content__post-meta list-unstyled">
                   <li>
-                    <a href="/blog-details.html">By George Lee</a>
-                    <a href="/blog-details.html"> 0 Comments</a>
+                    <a>{{$blog->user->name}}</a>
+                    <a> {{$blog->comments->count()}} Comments</a>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
+          @endforeach
           <!--/ .Single Blogs -->
           <!--/ .Single Blogs -->
-          <div class="col-lg-4 col-md-6 col-xs-10">
+          <!-- <div class="col-lg-4 col-md-6 col-xs-10">
             <div class="blogs-post blogs-post--small">
               <img class="w-100" src="./image/home-8/blogs-img-2.png" alt="">
               <div class="hover-content">
@@ -137,10 +141,10 @@
                 </ul>
               </div>
             </div>
-          </div>
+          </div> -->
           <!--/ .Single Blogs -->
           <!--/ .Single Blogs -->
-          <div class="col-lg-4 col-md-6 col-xs-10">
+          <!-- <div class="col-lg-4 col-md-6 col-xs-10">
             <div class="blogs-post blogs-post--small">
               <img class="w-100" src="./image/home-8/blogs-img-3.png" alt="">
               <div class="hover-content">
@@ -157,7 +161,7 @@
                 </ul>
               </div>
             </div>
-          </div>
+          </div> -->
           <!--/ .Single Blogs -->
         </div>
       </div>
