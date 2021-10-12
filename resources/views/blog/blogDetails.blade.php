@@ -53,10 +53,7 @@
               <div class="widget">
                 <h3 class="widget__title">Search</h3>
                 <div class="widget__search">
-                  <form action="./">
-                    <i class="fa fa-search text-royal-blue"></i>
-                    <input type="text" placeholder="Type to search">
-                  </form>
+                @livewire('search-controller')
                 </div>
               </div>
               <!--/ .Single Widgets -->
@@ -64,24 +61,14 @@
               <div class="widget">
                 <h3 class="widget__title">Recent Posts</h3>
                 <ul class="widget__recent-post list-unstyled mb-0 pb-0">
+                @foreach($recentBlogs as $blog)
                   <li class="widget__recent-post__single">
                     <a href="#">
-                      <h4 class="widget__recent-post__title">How To Blow Through Capital At An Incredible Rate</h4>
-                      <p class="widget__recent-post__date">Jan 14, 2020</p>
+                      <h4 class="widget__recent-post__title">{{$blog->title}}</h4>
+                      <p class="widget__recent-post__date">{{ \Carbon\Carbon::parse($blog->created_at)->diffForHumans() }}</p>
                     </a>
                   </li>
-                  <li class="widget__recent-post__single">
-                    <a href="#">
-                      <h4 class="widget__recent-post__title">Design Studios That Everyone Should Know About?</h4>
-                      <p class="widget__recent-post__date">Jan 14, 2020</p>
-                    </a>
-                  </li>
-                  <li class="widget__recent-post__single">
-                    <a href="#">
-                      <h4 class="widget__recent-post__title">How did we get 1M+ visitors in 30 days without anything!</h4>
-                      <p class="widget__recent-post__date">Jan 14, 2020</p>
-                    </a>
-                  </li>
+                  @endforeach
                 </ul>
               </div>
               <!--/ .Single Widgets -->
@@ -90,42 +77,14 @@
                 <h3 class="widget__title">Categories</h3>
                 <div class="widget__category">
                   <ul class="list-unstyled">
+                    @foreach($categories as $category)
                     <li>
                       <a class="d-flex align-items-center justify-content-between flex-wrap" href="#">
-                        <h4 class="mb-0">Technology:</h4>
-                        <span>20 posts</span>
+                        <h4 class="mb-0">{{$category->name}}:</h4>
+                        <span>{{$category->blogs->count()}} posts</span>
                       </a>
                     </li>
-                    <li>
-                      <a class="d-flex align-items-center justify-content-between flex-wrap" href="#">
-                        <h4 class="mb-0">Freelancing:</h4>
-                        <span>07 posts</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="d-flex align-items-center justify-content-between flex-wrap" href="#">
-                        <h4 class="mb-0">Writing:</h4>
-                        <span>16 posts</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="d-flex align-items-center justify-content-between flex-wrap" href="#">
-                        <h4 class="mb-0">Marketing:</h4>
-                        <span>11 posts</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="d-flex align-items-center justify-content-between flex-wrap" href="#">
-                        <h4 class="mb-0">Business:</h4>
-                        <span>35 posts</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="d-flex align-items-center justify-content-between flex-wrap" href="#">
-                        <h4 class="mb-0">Education:</h4>
-                        <span>14 posts</span>
-                      </a>
-                    </li>
+                    @endforeach
                   </ul>
                 </div>
               </div>

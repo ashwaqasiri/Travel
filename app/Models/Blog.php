@@ -11,8 +11,9 @@ class blog extends Model
     use HasFactory;
     use WithUuid;
 
+    public $incrementing = false;
+
     protected $fillable = [
-        'id',
         'user_id',
         'title',
         'img',
@@ -20,9 +21,10 @@ class blog extends Model
         'city_id'
     ];
 
-    protected $casts = [
-        'id' => 'string'
-      ];
+    // public function getKeyType()
+    // {
+    //     return 'string';
+    // }
 
     
     public function user()
