@@ -2,25 +2,27 @@
 namespace App\Traits;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 use Ramsey\Uuid\Uuid;
 
 trait WithUuid
 {
+
+    /**
+     * Sets the UUID value for the primary key field.
+     */
+    protected function setUUID()
+    {
+        $this->id = preg_replace('/\./', '', uniqid('bpm', true));
+    }
 
     public static function boot()
     {
         parent::boot();
 
         static::creating(function (Model $model) {
-            if (empty($model->{$model->getKeyName()})) {
-                $model->{$model->getKeyName()} = Uuid::uuid6()->toString();
-            }
+            $model->{$model->getKeyName()} = Str::orderedUuid()->toString();
         });
     }
 
-    public function initializeHasUuid()
-    {
-        $this->incrementing = false;
-        $this->keyType = 'string';
-    }
 }

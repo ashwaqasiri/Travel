@@ -3119,8 +3119,8 @@ body[data-theme="dark"] .reveal-header .nav-link-item,
 @media (min-width: 992px) {
   .site-menu-main .sub-menu {
     top: 100%;
-    min-width: 95px;
-    max-width: 95px;
+    min-width: 125px;
+    max-width: 125px;
   }
 }
 
