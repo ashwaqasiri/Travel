@@ -12,7 +12,6 @@ class category extends Model
     use WithUuid;
 
     protected $fillable = [
-        'id',
         'name'
     ];
 

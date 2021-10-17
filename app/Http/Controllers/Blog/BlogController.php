@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Blog;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\Blog;
 use App\Models\City;
@@ -23,11 +21,11 @@ class BlogController extends Controller
      */
     public function index()
     {   //show My Blogs (:
-        $user = Auth::user();
-       if ($user) 
-            return view('user.blogs',compact('user'));
+       if (Auth::check()) 
+           $userBlog = User::where('id', Auth::id())->with('blogs')->first();
+            return view('user.myBlogs',compact('userBlog'));
        
-        return redirect("login")->withSuccess('You are not allowed to access');
+        return redirect("login")->withErrors('You are not allowed to access');
     }
 
     /**
@@ -45,7 +43,7 @@ class BlogController extends Controller
         }
         else
         {
-            return redirect("login")->withInfo('You have to login');
+            return redirect("login")->withInfo('You have to login!');
         }
     }
 
@@ -58,7 +56,6 @@ class BlogController extends Controller
     public function store(Request $request)
     { 
         $user = Auth::user();
-        $uuid = Str::uuid()->toString();
         $request->validate([
             'title' => 'required',
             'img'  => 'mimes:jpeg,jpg,png,gif|required|max:2048',
@@ -76,7 +73,7 @@ class BlogController extends Controller
     
             $imgFile = Image::make($image->getRealPath());
     
-            $imgFile->fit(1000 ,1000 , function ($constraint) {
+            $imgFile->fit(600 ,600 , function ($constraint) {
                 $constraint->aspectRatio();
             })
             ->save($destinationPath.'/'.$input['img']);

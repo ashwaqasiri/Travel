@@ -10,15 +10,17 @@ use App\Models\Comment;
 
 class CommentController extends Component
 {
-    public $user;
-    public $comment;
+    public Comment $comment;
+    public $newComment;
     public $reply;
     public $blog;
     public $comments = [];
 
     protected $rules = [
-        'comment' => 'string|required|max:1000',
+        'newComment' => 'string|required|max:1000',
       ];
+    
+    // protected $listeners = ['ShowComments' => 'mount'];  
 
     public function mount($id)
     {
@@ -31,18 +33,17 @@ class CommentController extends Component
       if(Auth::check())
       {
 
-        $this->validate([
-          'comment' => 'required'
-        ]);
+        $this->validate();
         
-        $newComment = Comment::create([
+        $createComment = Comment::create([
           'user_id' => Auth::user()->id,
           'blog_id' => $this->blog->id,
-          'comment' => $this->comment
+          'comment' => $this->newComment
         ]);
-
-        $this->comments->push($newComment);
-        $this->comment = '';
+       
+        $this->comments->push($createComment);
+        $this->newComment = '';
+        // $this->emit('ShowComments');
       }
       else {
         //guest

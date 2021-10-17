@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\City;
 use App\Models\Blog;
+use App\Models\category;
 use Image;
 
 class CityController extends Controller
@@ -74,14 +75,16 @@ class CityController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
+     * 
+     * show blogs according to the city...
      */
     public function show($id)
     {
-        $city = City::findOrFail($id);
-        $cityBlogs = $city->blogs;
-        $recentBlogs = Blog::orderBy('created_at', 'desc')->take(5)->get();
+        $cityBlogs = City::where('id',$id)->with('blogs')->first();
+        $recentBlogs = Blog::latest()->take(5)->get();
+        $categories = Category::get();
 
-        return view('blog.showBlogs',compact('city','cityBlogs','recentBlogs'));
+        return view('blog.showBlogs',compact('cityBlogs','recentBlogs','categories'));
     }
 
     /**
