@@ -12,11 +12,11 @@ class Role extends SpatieRole
     protected $primaryKey = 'id';
     public $incrementing = false;
 
-    protected $fillable = [
-        'id',
-        'name',
-        'guard_name'
-    ];
+    // protected $fillable = [
+    //     'id',
+    //     'name',
+    //     'guard_name'
+    // ];
 
     /**
      * The attributes that should be cast to native types.
