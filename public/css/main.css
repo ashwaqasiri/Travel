@@ -208,7 +208,7 @@ body[data-theme='light'] .dark-mode-texts .light-shape.default-shape, .light-mod
 }
 
 .bg-default-3 {
-  background: var(--bg-3);
+  background: #6b5e7b;
 }
 
 .bg-default-4 {
@@ -293,7 +293,7 @@ body[data-theme='light'] .dark-mode-texts .light-shape.default-shape, .light-mod
 }
 
 .bg-default-3 {
-  background-color: var(--bg-3);
+  background-color: #6b5e7b;
 }
 
 .bg-default-4 {
@@ -1195,33 +1195,32 @@ button:focus {
 
 .btn-readical-red {
   color: #000;
-  background-color: #fd346e;
-  border-color: #fd346e;
+  background-color: #e9e5e6cb;
+  border-color: #e9e5e6;
 }
 
-.btn-readical-red:hover {
+/* .btn-readical-transparent {
   color: #000;
-  background-color: #fd5284;
-  border-color: #fd487d;
-}
+  background-color: #e9e5e6;
+  border-color: #e9e5e6;
+} */
 
 .btn-check:focus + .btn-readical-red, .btn-readical-red:focus {
   color: #000;
-  background-color: #fd5284;
-  border-color: #fd487d;
-  box-shadow: 0 0 0 0.2rem rgba(215, 44, 94, 0.5);
+  background-color: #e9e5e6;
+  border-color: #e9e5e6;
 }
 
 .btn-check:checked + .btn-readical-red,
 .btn-check:active + .btn-readical-red, .btn-readical-red:active, .btn-readical-red.active,
 .show > .btn-readical-red.dropdown-toggle {
   color: #000;
-  background-color: #fd5d8b;
-  border-color: #fd487d;
+  background-color: #e9e5e6;
+  border-color: #e9e5e6;
 }
 
 .btn-check:checked + .btn-readical-red:focus,
-.btn-check:active + .btn-readical-red:focus, .btn-readical-red:active:focus, .btn-readical-red.active:focus,
+.btn-check:active
 .show > .btn-readical-red.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(215, 44, 94, 0.5);
 }
@@ -6320,7 +6319,7 @@ ________________________________ */
   font-weight: 400;
   letter-spacing: normal;
   line-height: 28px;
-  color: var(--color-texts-3);
+  color: #fcfcfa;
 }
 
 .footer-section--l5 .footer-menu ul li a {
@@ -6328,12 +6327,8 @@ ________________________________ */
   font-weight: 400;
   letter-spacing: normal;
   line-height: 30px;
-  color: var(--color-headings-2);
+  color: #fcfcfa;
   transition: 0.4s;
-}
-
-.footer-section--l5 .footer-menu ul li a:hover {
-  color: #ff5722;
 }
 
 .footer-section--l5 .footer-social-share {
@@ -6351,8 +6346,8 @@ ________________________________ */
 }
 
 .footer-section--l5 .footer-social-share li a:hover {
-  box-shadow: 0 2px 2px #e32900;
-  background-color: #ff5722;
+  box-shadow: 0 2px 2px #6b5e7b1c;
+  background-color: #6b5e7b1c;
   color: #fff;
 }
 
@@ -7037,7 +7032,7 @@ ________________________________ */
   font-weight: 500;
   letter-spacing: normal;
   line-height: 1.3;
-  color: var(--color-headings-2);
+  color: #6b5e7b;
 }
 
 @media (min-width: 768px) {
@@ -7092,7 +7087,7 @@ ________________________________ */
   font-weight: 500;
   letter-spacing: normal;
   line-height: 1.38095;
-  color: var(--color-headings-2);
+  color: #6b5e7b;
 }
 
 @media (min-width: 768px) {
@@ -7132,7 +7127,7 @@ ________________________________ */
   font-weight: 500;
   letter-spacing: normal;
   line-height: 1.3;
-  color: var(--color-headings-2);
+  color: #6b5e7b;
 }
 
 @media (min-width: 768px) {
@@ -7173,7 +7168,7 @@ ________________________________ */
   font-weight: 500;
   letter-spacing: normal;
   line-height: 1.3;
-  color: var(--color-headings-2);
+  color: #6b5e7b;
 }
 
 @media (min-width: 768px) {
@@ -7450,7 +7445,7 @@ ________________________________ */
   letter-spacing: normal;
   line-height: 1.2;
   margin-bottom: 30px;
-  color: var(--color-headings-2);
+  color: #6b5e7b;
 }
 
 @media (min-width: 768px) {
@@ -10138,7 +10133,7 @@ ________________________________ */
   height: 100%;
   left: 0;
   top: 0;
-  background: linear-gradient(-261.26deg, rgba(253, 52, 110, 0.96) 14.9%, #b81c5c 43.58%, #0abfbc 89.94%);
+  background: linear-gradient(261.26deg, #0abfbc2e 14.9%, #6001d32e 43.58%, #0abfbc29 89.94%);
   opacity: 0.7;
   position: absolute;
   z-index: -1;
@@ -16727,4 +16722,23 @@ mark[data-aos="highlight-text"].aos-animate {
 
 .reveal-header .menu-sep-left::before {
   border-left: 2px solid rgba(255, 255, 255, 0.3);
+}
+.header-color{
+  color: #6b5e7b;
+}
+.btn-header{
+  font-size: 28px !important;
+  font-weight: bold !important;
+}
+
+.purpel-text{
+  color: #6b5e7b !important;
+}
+.item-end{
+  display: flex !important;
+  justify-content:flex-end !important;
+}
+
+.yellow-bg {
+  background-color: #c39a5b82;
 }

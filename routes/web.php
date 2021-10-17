@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SocialShareController;
 
 /*
@@ -20,6 +19,7 @@ use App\Http\Controllers\SocialShareController;
 // });
 
 Auth::routes();
+
 //Home Controller => show cities
 Route::resource('/', "App\Http\Controllers\HomeController");
 

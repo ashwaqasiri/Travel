@@ -4,9 +4,9 @@
         <nav class="navbar site-navbar">
           <!-- Brand Logo-->
           <div class="brand-logo">
-            <a href="/home-marketing.html">
+            <a href="/">
               <!-- light version logo (logo must be black)-->
-              <img src="image/png/logo-dark.png" alt="" class="light-version-logo">
+              <img src="{{asset('image/logo--travel.png')}}" alt="" class="light-version-logo pl-2" style="width:150px;">
               <!-- Dark version logo (logo must be White)-->
               <img src="image/png/logo-white.png" alt="" class="dark-version-logo">
             </a>
@@ -23,24 +23,24 @@
               </div>
               <ul class="site-menu-main">
                 <li class="nav-item nav-item-has-children">
-                  <a href="#" class="nav-link-item drop-trigger">Home </i>
+                  <a href="/" class="nav-link-item drop-trigger">Home </i>
                   </a>
                 </li>
                 <li class="nav-item nav-item-has-children">
-                  <a href="#" class="nav-link-item drop-trigger">Pages </i>
+                  <a href="#" class="nav-link-item drop-trigger">About Us </i>
                   </a>
                 </li>
-                <li class="nav-item nav-item-has-children">
+                {{-- <li class="nav-item nav-item-has-children">
                   <a href="#" class="nav-link-item drop-trigger">Contact</i>
                   </a>
-                </li>
+                </li> --}}
                 <li class="nav-item nav-item-has-children mr-lg-9">
                   @if(\Auth::check())
                   <a class="nav-link-item drop-trigger" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ Auth::user()->name }}
                   </a>
                     <ul class="sub-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li class="sub-menu--item"><a href="">{{ __('Profile')}}</a></li>
+                        <li class="sub-menu--item"><a href="{{route('blogs.index')}}">{{ __('My Blogs')}}</a></li>
                         <li class="sub-menu--item "><a href="">{{ __('Logout')}}</a></li>
                     </ul>
                     @else
@@ -52,27 +52,6 @@
               </ul>
             </nav>
           </div>
-          <!-- @if(\Auth::check())
-            <div class="header-btns  ms-auto ms-lg-0 d-none d-sm-flex align-items-center">
-                <ul class="site-menu-main">
-                    <li class="nav-item nav-item-has-children ">
-                        <a class="nav-link-item drop-trigger" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ Auth::user()->name }}
-                        </a>
-                        <ul class="sub-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li class="sub-menu--item"><a href="">{{ __('Profile')}}</a></li>
-                            <li class="sub-menu--item "><a href="">{{ __('Logout')}}</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            @else
-            <div class="header-btns  ms-auto ms-lg-0 d-none d-sm-flex align-items-center ">
-                <a class="btn btn-header-btns btn-link-water btn--medium-2 h-45 text-shark rounded-5 ms-1 ml-2" href="{{route('login')}}">
-                    {{ __('Login')}}
-                </a>
-            </div>
-            @endif -->
           <!-- mobile menu trigger -->
           <div class="mobile-menu-trigger">
             <span></span>

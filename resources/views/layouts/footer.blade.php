@@ -9,23 +9,20 @@
                 <div class="brand-logo">
                   <a href="#">
                     <!-- light version logo (logo must be black)-->
-                    <img src="image/png/logo-dark.png" alt="" class="light-version-logo">
+                    <img src="{{asset('image/dark_logo.png')}}" alt="" class="light-version-logo" style="width: 200px;">
                     <!-- Dark version logo (logo must be White)-->
                     <img src="image/png/logo-white.png" alt="" class="dark-version-logo">
                   </a>
                 </div>
-                <p class="footer-brand-block__text text-center">We’ll help you achieve Your marketing & business goals</p>
+                <p class="footer-brand-block__text text-center">our mission is to inspire wonder and curiosity about the incredible world we all share.</p>
               </div>
             </div>
             <div class="col-12">
               <div class="footer-menu text-center">
                 <ul class="list-unstyled">
-                  <li><a href="#">Home</a></li>
-                  <li><a href="#">About</a></li>
-                  <li><a href="#">Services</a></li>
-                  <li><a href="#">Blog</a></li>
-                  <li><a href="#">Contact</a></li>
-                  <li><a href="#">contact</a></li>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="#">About Us</a></li>
+                  {{-- <li><a href="#">Contact</a></li> --}}
                 </ul>
               </div>
             </div>
@@ -36,29 +33,24 @@
             <div class="col-12 text-center">
               <ul class="footer-social-share footer-social-share--rounded">
                 <li>
-                  <a href="#">
-                    <i class="fab fa-facebook-square"></i>
+                  <a href="https://github.com/ashwaqasiri">
+                    <i class="fab fa-github"></i>
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="https://twitter.com/imashwaq_?t=OEtfQGXvjWmBZm4qbCzDtA&s=08">
                     <i class="fab fa-twitter"></i>
                   </a>
                 </li>
                 <li>
-                  <a href="#">
-                    <i class="fab fa-instagram"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="fab fa-linkedin"></i>
+                  <a href="mailto:cs.ashwaq96@gmail.com">
+                    <i class="fas fa-envelope"></i>
                   </a>
                 </li>
               </ul>
             </div>
             <div class="col-12 text-center">
-              <p class="copyright-text--l3 ">© 2021 Fastland. All rights reserved</p>
+              <p class="copyright-text--l3 ">© 2021 by Ashwaq Asiri</p>
             </div>
           </div>
         </div>

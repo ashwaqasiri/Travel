@@ -7,7 +7,7 @@
     <title>
         Travel - @yield('title')
     </title>
-    <link rel="shortcut icon" href="{{ asset('image/png/favicon.png')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('image/2.png')}}" type="image/x-icon">
     <!-- Bootstrap , fonts & icons  -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{ asset('fonts/icon-font/css/style.css')}}">
@@ -37,7 +37,7 @@
 <body data-theme-mode-panel-active data-theme="light">
     <div class="site-wrapper overflow-hidden ">
         <div id="loading">
-            <img src="{{ asset('image/preloader.gif')}}" alt="">
+            <img src="{{ asset('image/travel_preloader.gif')}}" alt="">
         </div>
 
             @include('layouts.header')

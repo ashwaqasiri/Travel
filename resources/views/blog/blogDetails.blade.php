@@ -31,10 +31,6 @@
                 <h4 class="post-social-share__title mb-0">Share:</h4>
                 <ul class="social-share list-unstyled mb-0">
                   {!!$shareButtons!!}
-                  <!-- <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                  <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                  <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                  <li><a href="#"><i class="fab fa-twitter"></i></a></li> -->
                 </ul>
               </div>
               <div class="next-prev-btn d-flex align-items-center justify-content-between">
@@ -61,11 +57,11 @@
               <div class="widget">
                 <h3 class="widget__title">Recent Posts</h3>
                 <ul class="widget__recent-post list-unstyled mb-0 pb-0">
-                @foreach($recentBlogs as $blog)
+                @foreach($recentBlogs as $recentBlog)
                   <li class="widget__recent-post__single">
                     <a href="#">
-                      <h4 class="widget__recent-post__title">{{$blog->title}}</h4>
-                      <p class="widget__recent-post__date">{{ \Carbon\Carbon::parse($blog->created_at)->diffForHumans() }}</p>
+                      <h4 class="widget__recent-post__title">{{$recentBlog->title}}</h4>
+                      <p class="widget__recent-post__date">{{ \Carbon\Carbon::parse($recentBlog->created_at)->diffForHumans() }}</p>
                     </a>
                   </li>
                   @endforeach
