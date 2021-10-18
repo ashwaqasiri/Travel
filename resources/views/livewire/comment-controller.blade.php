@@ -14,9 +14,6 @@
               @foreach($comments as $comment)
               <li class="comment-meta-box__single">
                 <div class="comment-meta-box d-flex">
-                  <!-- <div class="comment-meta-box__author-img">
-                    <img src="./image/png/user-img-1.png" alt="">
-                  </div> -->
                   <div class="comment-meta-box__content">
                     <div class="comment-meta-box__user-info d-flex align-items-end justify-content-between mb-3">
                       <div class="comment-meta-box__details">
@@ -82,7 +79,7 @@
                 <div class="row">
                   <div class="col-lg-12">
                     <div class="form-floating">
-                      <textarea wire:model="comment" wire:keydown.enter="addComment()" name="comment" class="form-control" placeholder="Leave a comment here" id="floatingTextarea3" style="height: 100px"></textarea>
+                      <textarea wire:model="newComment" class="form-control" placeholder="Leave a comment here" id="floatingTextarea3" style="height: 100px"></textarea>
                       <label for="floatingTextarea3">Type your comment.. </label>
                     </div>
                   </div>

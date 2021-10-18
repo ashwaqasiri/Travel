@@ -20,7 +20,7 @@ class CommentController extends Component
         'newComment' => 'string|required|max:1000',
       ];
     
-    // protected $listeners = ['ShowComments' => 'mount'];  
+    protected $listeners = ['ShowComments'];  
 
     public function mount($id)
     {
@@ -43,12 +43,18 @@ class CommentController extends Component
        
         $this->comments->push($createComment);
         $this->newComment = '';
-        // $this->emit('ShowComments');
+        $this->emit('ShowComments',$this->blog->id);
       }
       else {
         //guest
         return redirect(route('login'));
       }
+    }
+
+    public function ShowComments(){
+      
+      $this->blog = Blog::find($this->blog->id);
+      $this->comments = $this->blog->comments;
     }
 
     public function render()
