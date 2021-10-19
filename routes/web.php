@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SocialShareController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\LogoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +21,18 @@ use App\Http\Controllers\SocialShareController;
 // });
 
 Auth::routes();
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('signout', [LogoutController::class, 'signOut'])->name('signout');
+
+});
+
+Route::middleware(['guest'])->group(function () { 
+    Route::get('/forgot-password',[ForgotPasswordController::class, 'showForgetPasswordForm'])->name('password.request');
+    Route::post('/forgot-password',[ForgotPasswordController::class, 'submitResetPassword'])->name('password.email');
+    Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('password.reset');
+    Route::post('/reset-password',[ForgotPasswordController::class,'submitResetPasswordForm'])->name('password.update');
+    });
 
 //Home Controller => show cities
 Route::resource('/', "App\Http\Controllers\HomeController");
