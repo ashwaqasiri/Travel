@@ -81,10 +81,12 @@ class CityController extends Controller
     public function show($id)
     {
         $cityBlogs = City::where('id',$id)->with('blogs')->first();
+        $blogs = $cityBlogs->blogs()->paginate(4);
+        //dd($blog);
         $recentBlogs = Blog::latest()->take(5)->get();
         $categories = Category::get();
 
-        return view('blog.showBlogs',compact('cityBlogs','recentBlogs','categories'));
+        return view('blog.showBlogs',compact('blogs','cityBlogs','recentBlogs','categories'));
     }
 
     /**

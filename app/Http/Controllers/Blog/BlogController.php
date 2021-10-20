@@ -73,7 +73,7 @@ class BlogController extends Controller
     
             $imgFile = Image::make($image->getRealPath());
     
-            $imgFile->fit(600 ,600 , function ($constraint) {
+            $imgFile->fit(500 ,200 , function ($constraint) {
                 $constraint->aspectRatio();
             })
             ->save($destinationPath.'/'.$input['img']);
