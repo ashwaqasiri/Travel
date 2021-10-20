@@ -7,7 +7,7 @@
         <div class="row justify-content-center">
           <div class="col-lg-7">
             <div class="blog-title">
-              <h1 class="blog-title__heading">{{$blog->title}}</h1>
+              <h3 class="blog-title__heading header-color">{{$blog->title}}</h3>
               <div class="blog__metainfo">
                 <a href="#" class="blog__metainfo__author-name">{{$blog->user->name}}</a>
                 <a href="#" class="blog__metainfo__date">{{ \Carbon\Carbon::parse($blog->created_at)->diffForHumans() }}</a>
@@ -15,7 +15,7 @@
             </div>
             <div class="blog-content">
               <div class="blog-content__img">
-                <img class="w-100" src="{{ asset('thumbnail/'.$blog->img); }}" alt="">
+                <img class="w-100" src="{{ asset('thumbnail/'.$blog->img); }}" alt="" style="border-radius: 8px;">
               </div>
               <p class="blog-content__text">{{$blog->description}}</p>
               <div class="post-tags-section d-flex align-items-center flex-wrap">
@@ -23,7 +23,7 @@
                 <ul class="post-tags list-unstyled mt-3 mt-lg-5">
                
                   @foreach($categories as $cat)
-                  <li><a href="#" class="{{in_array($cat->id, $blogCategory) ? 'bg-secondary' : ''}}">{{$cat->name}}</a></li>
+                  <li><a href="#" class="{{in_array($cat->id, $blogCategory) ? 'purpel-bg-color' : ''}}">{{$cat->name}}</a></li>
                   @endforeach
                 </ul>
               </div>

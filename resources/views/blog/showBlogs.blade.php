@@ -15,8 +15,8 @@
         <div class="row justify-content-center">
           <div class="col-xl-8 col-lg-7 order-lg-2">
             <div class="row justify-content-center">
-              <div class="col-xl-12 col-lg-10">
-                @foreach($cityBlogs->blogs as $blog)
+              <div class="col-xl-12 col-lg-10 h-50">
+                @foreach($blogs as $blog)
                 <div class="blogs-post blogs-post--big">
                   <img class="w-100" src="{{ asset('thumbnail/'.$blog->img); }}" alt="">
                   <div class="hover-content">
@@ -25,7 +25,7 @@
                       @foreach($blog->categories as $category)
                       <a class="hover-content__badge badge bg-yellow">{{$category->name}}</a>
                       @endforeach
-                      <a class="hover-content__date">{{ \Carbon\Carbon::parse($blog->created_at)->diffForHumans() }}</a>
+                      <a class="hover-content__badge badge bg-white">{{ \Carbon\Carbon::parse($blog->created_at)->diffForHumans() }}</a>
                     </div>
                     <a href="{{route('blogs.show',$blog->id)}}" class="hover-content__title">{{$blog->title}}</a>
                     <ul class="hover-content__post-meta list-unstyled">
@@ -48,7 +48,7 @@
                 <div class="d-flex justify-content-center">
                 </div>
                 <div class="pagination">
-                  <ul class="list-unstyled text-center mx-auto">
+                  {{-- <ul class="list-unstyled text-center mx-auto">
                     <li>
                       <a href="#">
                         <i class="fa fa-chevron-left"></i>
@@ -63,7 +63,8 @@
                         <i class="fa fa-chevron-right"></i>
                       </a>
                     </li>
-                  </ul>
+                  </ul> --}}
+                  <span>{{$blogs->links()}}</span>
                 </div>
               </div>
             </div>

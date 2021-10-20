@@ -1,15 +1,16 @@
 <div>
        <!-- Comments Section Area -->
-       <div class="comments-area bg-default-3 border-bottom border-default-4">
+       <div class="comments-area bg-default-6 border-bottom border-default-4">
       <div class="container">
         <div class="row">
           <div class="col-lg-7">
             <div class="comments-form section-title text-left mb-5 mb-md-7">
-              <h2 class="section-title__heading">
+              <h2 class="section-title__sub-heading header-color">
                 Comments
               </h2>
             </div>
             <ul class="list-unstyled">
+            @if(count($comments))
               <!-- Single Comments -->
               @foreach($comments as $comment)
               <li class="comment-meta-box__single">
@@ -17,7 +18,7 @@
                   <div class="comment-meta-box__content">
                     <div class="comment-meta-box__user-info d-flex align-items-end justify-content-between mb-3">
                       <div class="comment-meta-box__details">
-                        <a href="#" class="comment-meta-box__name">{{ $comment->user->name }}</a>
+                        <a href="#" class="comment-meta-box__name mr-2">{{ $comment->user->name }}</a>
                         <a href="#" class="comment-meta-box__date pl-8">
                           {{ \Carbon\Carbon::parse($comment->created_at)->diffForHumans() }}
                         </a>
@@ -66,12 +67,17 @@
               </li>
               @endforeach
               <!--/ .Single Comments -->
+            @else
+            <p class="section-title__sub-heading header-color">
+              No Comments Yet..
+            </p>
+            @endif
             </ul>
           </div>
           <div class="col-xl-7 col-lg-7 mb-7 mb-lg-0">
             <div class="comments-form">
               <div class="section-title text-left mb-5 mb-md-7">
-                <h2 class="section-title__heading">
+                <h2 class="section-title__sub-heading header-color">
                   Share your response
                 </h2>
               </div>
@@ -85,7 +91,7 @@
                   </div>
                   <div class="col-lg-12">
                  
-                    <button  wire:click.prevent="addComment" class="btn btn-primary shadow--primary-4 btn--lg-2 rounded-55 text-white">Send
+                    <button  wire:click.prevent="addComment" class="btn bg-yellow shadow--primary-4 btn--lg-2 rounded-55 text-white mt-6">Send
                       Message</button>
                   </div>
                 </div>

@@ -41,7 +41,7 @@
                   </a>
                     <ul class="sub-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li class="sub-menu--item"><a href="{{route('blogs.index')}}">{{ __('My Blogs')}}</a></li>
-                        <li class="sub-menu--item "><a href="">{{ __('Logout')}}</a></li>
+                        <li class="sub-menu--item "><a href="{{route('signout')}}">{{ __('Logout')}}</a></li>
                     </ul>
                     @else
                     <a class="nav-link-item drop-trigger" href="{{route('login')}}">

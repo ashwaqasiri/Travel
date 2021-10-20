@@ -31,7 +31,7 @@
               @foreach($userBlog->blogs as $blog)
               <div class="grid-item grid--half__single grid--half__single customer-support development customer-support">
                 <a href="{{route('blogs.show',$blog->id)}}" class="portfolio__single h-50">
-                  <img class="w-100 h-50" src="{{ asset('thumbnail/'.$blog->img); }}" alt="">
+                  <img class="w-100 h-50" src="{{ asset('thumbnail/'.$blog->img); }}" alt="" style="border-radius: 10px;">
                   <div class="portfolio__hover yellow-bg dark-mode-texts d-xs-flex align-items-center justify-content-between">
                     <div class="hover-content">
                       <h3 class="portfolio__hover__heading">{{$blog->title}}</h3>

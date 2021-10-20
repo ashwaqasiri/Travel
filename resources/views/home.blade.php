@@ -32,7 +32,7 @@
                       <!-- https://laracasts.com/discuss/channels/laravel/dynamic-css-background-image -->
                     <div class="img d-flex align-items-end justify-content-center" style="background-image: url('{{ asset('/thumbnail/' . $city->image) }}')">
                       <div class="text w-100">
-                        <span class="cat">{{$city->region}}</span>
+                        <span class="cat">{{$city->region}} Region</span>
                         <h3><a href="{{route('city.show',$city->id)}}">{{$city->name}}</a></h3>
                       </div>
                     </div>
@@ -64,7 +64,7 @@
           @foreach($recentBlogs as $blog)
             <div class="col-lg-4 col-md-6 col-xs-10">
               <div class="blogs-post blogs-post--small">
-                <img class="w-100 h-75" src="{{ asset('thumbnail/'.$blog->img); }}" alt="">
+                <img class="w-100" src="{{ asset('thumbnail/'.$blog->img); }}" alt="" style="height: 260px;">
                 <div class="hover-content">
                   <div class="hover-content__top d-flex align-items-center dark-mode-texts">
                     @foreach($blog->categories as $category)
