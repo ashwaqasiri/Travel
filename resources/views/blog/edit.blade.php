@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Create Blog')
+@section('title', 'Edit Blog')
 @section('content')
 <div class="container" style="margin-top: 10%; margin-bottom: 10%;">
 @if ($errors->any())
@@ -11,8 +11,9 @@
                   </ul>
               </div>
             @endif
-<form method="post" action="{{ route('blogs.store') }}" enctype="multipart/form-data">
-  @include('blog._form')
+<form method="post" action="{{ route('blogs.edit', $blog) }}" enctype="multipart/form-data">
+    @method('PUT')
+    @include('blog._form')
 </form>
 </div>
 @endsection
