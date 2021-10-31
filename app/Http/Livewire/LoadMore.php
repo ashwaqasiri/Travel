@@ -26,6 +26,6 @@ class LoadMore extends Component
     }
 
     public function load(){
-        $this->amount += 6;
+        $this->amount += 4;
     }
 }

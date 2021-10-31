@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Blog;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Models\User;
 use App\Models\Blog;
 use App\Models\City;
@@ -21,10 +22,10 @@ class BlogController extends Controller
      */
     public function index()
     {   //show My Blogs (:
-       if (Auth::check()) 
-           $userBlog = User::where('id', Auth::id())->with('blogs')->first();
-            return view('user.myBlogs',compact('userBlog'));
-       
+        $user = Auth::user();
+       if ($user){
+            return view('user.myBlogs');
+        }
         return redirect("login")->withErrors('You are not allowed to access');
     }
 
@@ -69,16 +70,18 @@ class BlogController extends Controller
             $image = $request->file('img');
             $input['img'] = time().'.'.$image->getClientOriginalExtension();
             
-            $destinationPath = public_path('/thumbnail');
+            $destinationPath = public_path('/thumbnail');// store in storage
     
             $imgFile = Image::make($image->getRealPath());
     
             $imgFile->fit(500 ,200 , function ($constraint) {
                 $constraint->aspectRatio();
             })
+
+            //Storage::disk('local')->put('thumbnail'.'/'.$input['img'], $imgFile, 'public');
             ->save($destinationPath.'/'.$input['img']);
         }
-
+        //dd($request->all());
         $blog = Blog::create([
             
             'title'=> $request->title,
@@ -89,6 +92,7 @@ class BlogController extends Controller
         ]);
 
         $categories = $request->get('categories');
+        //dd($categories);
         foreach ($categories as $value) {
             $blog->refresh()->categories()->attach($value);
         }
@@ -133,9 +137,9 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Blog $blog)
     {
-        //
+        $blogCategory = $blog->categories()->pluck('category_id')->toArray();
     }
 
     /**

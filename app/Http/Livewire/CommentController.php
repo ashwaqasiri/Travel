@@ -44,8 +44,7 @@ class CommentController extends Component
         $this->comments->push($createComment);
         $this->newComment = '';
         $this->emit('ShowComments',$this->blog->id);
-      }
-      else {
+      }else{
         //guest
         return redirect(route('login'));
       }
