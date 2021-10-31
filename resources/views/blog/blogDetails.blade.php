@@ -55,11 +55,11 @@
               <!--/ .Single Widgets -->
               <!-- Single Widgets -->
               <div class="widget">
-                <h3 class="widget__title">Recent Posts</h3>
+                <h3 class="widget__title">Newest Posts</h3>
                 <ul class="widget__recent-post list-unstyled mb-0 pb-0">
                 @foreach($recentBlogs as $recentBlog)
                   <li class="widget__recent-post__single">
-                    <a href="#">
+                    <a href="{{route('blogs.show',$recentBlog->id)}}">
                       <h4 class="widget__recent-post__title">{{$recentBlog->title}}</h4>
                       <p class="widget__recent-post__date">{{ \Carbon\Carbon::parse($recentBlog->created_at)->diffForHumans() }}</p>
                     </a>

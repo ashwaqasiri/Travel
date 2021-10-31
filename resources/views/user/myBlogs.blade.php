@@ -7,7 +7,7 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-xl-7">
-            <h2 class="page-title-content__heading">My Blogs</h2>
+            <h2 class="page-title-content__heading header-color">My Blogs</h2>
             <p class="page-title-content__text">Aliquam finibus massa et convallis faucibus. Donec porta finibus.</p>
           </div>
         </div>

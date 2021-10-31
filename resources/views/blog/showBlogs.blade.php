@@ -71,6 +71,7 @@
           </div>
           <div class="col-xl-4 col-lg-5 col-md-7 col-xs-10 mt-5 mt-lg-0 order-lg-1">
             <div class="sidebar-area">
+              <a href="{{route('blogs.create')}}" class="btn col-12 purpel-bg-color mb-4" style="font-weight: 400;">Share your travel story with us!</a>
               <!-- Single Widgets -->
               <div class="widget">
                 <h3 class="widget__title">Search</h3>
@@ -85,7 +86,7 @@
                 <ul class="widget__recent-post list-unstyled mb-0 pb-0">
                   @foreach($recentBlogs as $blog)
                   <li class="widget__recent-post__single">
-                    <a href="#">
+                    <a href="{{route('blogs.show',$recentBlog->id)}}">
                       <h4 class="widget__recent-post__title">{{$blog->title}}</h4>
                       <p class="widget__recent-post__date">{{ \Carbon\Carbon::parse($blog->created_at)->diffForHumans() }}</p>
                     </a>

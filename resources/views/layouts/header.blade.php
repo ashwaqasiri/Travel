@@ -27,7 +27,7 @@
                   </a>
                 </li>
                 <li class="nav-item nav-item-has-children">
-                  <a href="#" class="nav-link-item drop-trigger">About Us </i>
+                  <a href="{{route('about-us')}}" class="nav-link-item drop-trigger">About Us </i>
                   </a>
                 </li>
                 {{-- <li class="nav-item nav-item-has-children">
@@ -41,12 +41,16 @@
                   </a>
                     <ul class="sub-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li class="sub-menu--item"><a href="{{route('blogs.index')}}">{{ __('My Blogs')}}</a></li>
+                        <li class="sub-menu--item"><a href="{{route('blogs.create')}}">{{ __('Create Blog')}}</a></li>
                         <li class="sub-menu--item "><a href="{{route('signout')}}">{{ __('Logout')}}</a></li>
                     </ul>
                     @else
                     <a class="nav-link-item drop-trigger" href="{{route('login')}}">
                     {{ __('Login')}}
                     </a>
+                    <a class="nav-link-item drop-trigger" href="{{ route('register') }}">
+                      {{ __('Register')}}
+                      </a>
                     @endif
                 </li>
               </ul>

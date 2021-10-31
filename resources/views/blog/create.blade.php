@@ -1,9 +1,17 @@
 @extends('layouts.app')
 @section('title', 'Create Blog')
 @section('content')
-<div class="container" style="margin-top: 10%; margin-bottom: 10%;">
-@if ($errors->any())
-              <div class="alert alert-danger col-xl-7 col-lg-7 mb-7 mb-lg-0">
+{{-- <div class="bg-default-6" style="margin-top: 10%; margin-bottom: 10%;"> --}}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-xl-7">
+      <div class="section-title section-title--innerpage text-center custom-top">
+        <h5 class="section-title__sub-heading text-electric-violet-2">Create Blog</h5>
+        <p class="page-title-content__text">Aliquam finibus massa et convallis faucibus. Donec porta finibus.</p>
+      </div>
+    </div>
+            @if ($errors->any())
+              <div class="alert alert-danger col-xl-7 col-lg-7 mb-7 mb-lg-0 justify-content-center">
                   <ul>
                       @foreach ($errors->all() as $error)
                           <li>{{ $error }}</li>
@@ -11,8 +19,9 @@
                   </ul>
               </div>
             @endif
-<form method="post" action="{{ route('blogs.store') }}" enctype="multipart/form-data">
-  @include('blog._form')
-</form>
+    </div>
+    <form method="post" action="{{ route('blogs.store') }}" enctype="multipart/form-data">
+      @include('blog._form')
+    </form>
 </div>
 @endsection
