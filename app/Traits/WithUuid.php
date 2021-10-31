@@ -7,7 +7,7 @@ use Ramsey\Uuid\Uuid;
 
 trait WithUuid
 {
-
+    public $incrementing = false;
     /**
      * Sets the UUID value for the primary key field.
      */

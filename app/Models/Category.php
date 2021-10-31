@@ -11,6 +11,8 @@ class category extends Model
     use HasFactory;
     use WithUuid;
 
+    public $incrementing = false;
+    
     protected $fillable = [
         'name'
     ];
