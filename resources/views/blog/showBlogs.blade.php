@@ -86,7 +86,7 @@
                 <ul class="widget__recent-post list-unstyled mb-0 pb-0">
                   @foreach($recentBlogs as $blog)
                   <li class="widget__recent-post__single">
-                    <a href="{{route('blogs.show',$recentBlog->id)}}">
+                    <a href="{{route('blogs.show',$blog->id)}}">
                       <h4 class="widget__recent-post__title">{{$blog->title}}</h4>
                       <p class="widget__recent-post__date">{{ \Carbon\Carbon::parse($blog->created_at)->diffForHumans() }}</p>
                     </a>

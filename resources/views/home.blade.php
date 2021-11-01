@@ -30,7 +30,7 @@
                 <div class="item">
                   <div class="work">
                       <!-- https://laracasts.com/discuss/channels/laravel/dynamic-css-background-image -->
-                    <div class="img d-flex align-items-end justify-content-center" style="background-image: url('{{ asset('/thumbnail/' . $city->image) }}')">
+                    <div class="img d-flex align-items-end justify-content-center" style="background-image: url('{{ asset('thumbnail/' . $city->image) }}')">
                       <div class="text w-100">
                         <span class="cat">{{$city->region}} Region</span>
                         <h3><a href="{{route('city.show',$city->id)}}">{{$city->name}}</a></h3>

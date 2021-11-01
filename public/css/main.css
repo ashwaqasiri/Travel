@@ -3118,8 +3118,8 @@ body[data-theme="dark"] .reveal-header .nav-link-item,
 @media (min-width: 992px) {
   .site-menu-main .sub-menu {
     top: 100%;
-    min-width: 125px;
-    max-width: 125px;
+    min-width: 150px;
+    max-width: 150px;
   }
 }
 
@@ -7369,6 +7369,9 @@ ________________________________ */
   letter-spacing: normal;
   line-height: 1.75;
 }
+.custom-top{
+  margin-top: 25%;
+}
 
 .section-title--innerpage .section-title__heading {
   font-weight: 500;
@@ -7382,11 +7385,17 @@ ________________________________ */
   .section-title--innerpage .section-title__heading {
     font-size: 35px;
   }
+  .custom-top{
+    margin-top: 10%;
+  }
 }
 
 @media (min-width: 992px) {
   .section-title--innerpage .section-title__heading {
     font-size: 45px;
+  }
+  .custom-top{
+    margin-top: 10%;
   }
 }
 
@@ -16750,4 +16759,8 @@ mark[data-aos="highlight-text"].aos-animate {
 .purpel-bg-color{
   background-color: #6b5e7b !important;
   color: #fff !important;
+}
+.center-item{
+  margin:0 auto;
+  display:block !important;
 }

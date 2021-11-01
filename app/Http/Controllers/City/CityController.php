@@ -82,7 +82,6 @@ class CityController extends Controller
     {
         $cityBlogs = City::where('id',$id)->with('blogs')->first();
         $blogs = $cityBlogs->blogs()->paginate(4);
-        //dd($blog);
         $recentBlogs = Blog::latest()->take(5)->get();
         $categories = Category::get();
 
