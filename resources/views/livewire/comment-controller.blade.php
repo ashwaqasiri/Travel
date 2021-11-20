@@ -22,48 +22,21 @@
                         <a href="#" class="comment-meta-box__date pl-8">
                           {{ \Carbon\Carbon::parse($comment->created_at)->diffForHumans() }}
                         </a>
-                        <div class="comment-meta-box__date-time">
-                          <!-- <a href="#" class="comment-meta-box__date">
-                          {{ \Carbon\Carbon::parse($comment->created_at)->diffForHumans() }}
-                          </a> -->
-                          <!-- <a href="" class="comment-meta-box__time"> 24 minutes ago</a> -->
-                        </div>
                       </div>
-                      <!-- <a class="btn-link comment-meta-box__reply-btn text-electric-violet-2" href="#">
-                        <i
-                                            class="fa fa-reply"></i> Reply</a> -->
                     </div>
                     <p class="comment-meta-box__text">{{ $comment->comment }}</p>
+                    @livewire('reply-controller',['id' => $comment->id])
+                    {{-- <div x-data="{ open: false }">
+                      <button @click="open = ! open" class="btn btn--sm-2 text-electric-violet-2 text-left">
+                      <i class="fa fa-reply"></i> Reply</button>
+                      <div x-show="open" @click.outside="open = false">
+                        <input wire:model="newRelpy" class="form-control" placeholder="Leave a reply here"  style="height: 100px; width:400px;"/>
+                        <button wire:click="addReply({{$comment->id}})" class="btn bg-yellow shadow--primary-4 btn--sm-2 rounded-55 text-white mt-2">
+                           Add reply</button>
+                      </div>
+                    </div> --}}
                   </div>
                 </div>
-                 <!-- sub-comment -->
-                <!-- <ul class="list-unstyled sub-comment-meta-box">
-                  <li class="comment-meta-box__single">
-                    <div class="comment-meta-box d-flex">
-                      <div class="comment-meta-box__author-img">
-                        <img src="./image/png/user-img-2.png" alt="">
-                      </div>
-                      <div class="comment-meta-box__content">
-                        <div class="comment-meta-box__user-info d-flex align-items-end justify-content-between mb-3">
-                          <div class="comment-meta-box__details">
-                            <a href="#" class="comment-meta-box__name">Jennifer Ashley</a>
-                            <div class="comment-meta-box__date-time">
-                              <a href="#" class="comment-meta-box__date">Jan 20, 2021 </a>|
-                              <a href="" class="comment-meta-box__time"> 24 minutes ago</a>
-                            </div>
-                          </div>
-                          <a class="btn-link comment-meta-box__reply-btn text-electric-violet-2" href="#">
-                            <i class="fa fa-reply"></i> Reply</a>
-                        </div>
-                        <p class="comment-meta-box__text">OMG! I cannot believe that I have got a brand
-                          new landing page after getting
-                          Fastland. It
-                          was super easy to create, edit and publish.</p>
-                      </div>
-                    </div>
-                  </li>
-                </ul> -->
-                <!-- /  sub-comment -->
               </li>
               @endforeach
               <!--/ .Single Comments -->

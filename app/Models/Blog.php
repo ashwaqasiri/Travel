@@ -37,14 +37,19 @@ class blog extends Model
         return $this->belongsTo(City::class);
     }
 
-    public function comments()
-    {
-        return $this->hasMany(Comment::class)->latest();
-    }
+    // public function comments()
+    // {
+    //     return $this->hasMany(Comment::class)->latest();
+    // }
 
     public function categories()
     {
         return $this->belongsToMany(Category::class);
+    }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable')->whereNull('parent_id')->latest();
     }
 
 }

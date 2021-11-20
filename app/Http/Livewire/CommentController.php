@@ -32,16 +32,13 @@ class CommentController extends Component
     {
       if(Auth::check())
       {
-
         $this->validate();
-        
-        $createComment = Comment::create([
-          'user_id' => Auth::user()->id,
-          'blog_id' => $this->blog->id,
-          'comment' => $this->newComment
-        ]);
-       
-        $this->comments->push($createComment);
+        $comment = new Comment;
+        $comment->user_id = Auth::user()->id;
+        $comment->blog_id = $this->blog->id;
+        $comment->comment = $this->newComment;
+
+        $this->blog->comments()->save($comment);
         $this->newComment = '';
         $this->emit('ShowComments',$this->blog->id);
       }else{

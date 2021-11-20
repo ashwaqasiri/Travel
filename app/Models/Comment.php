@@ -13,7 +13,10 @@ class Comment extends Model
     protected $fillable = [
         'user_id',
         'blog_id',
-        'comment'
+        'comment',
+        'parent_id',
+        'commentable_id',
+        'commentable_type'
     ];
 
     protected $casts = [
@@ -37,6 +40,16 @@ class Comment extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function commentable()
+    {
+        return $this->morphTo();  
+    }
+ 
+    public function replies()
+    {
+        return $this->hasMany(Comment::class, 'parent_id');
     }
 }
 

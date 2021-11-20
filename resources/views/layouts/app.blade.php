@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css')}}">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
 	<link rel="stylesheet" href="{{ asset('css/style.css')}}">
+    <script src="//unpkg.com/alpinejs" defer></script>
 
     <!-- ajax -->
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> -->
