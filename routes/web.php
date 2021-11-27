@@ -46,6 +46,7 @@ Route::resource('category', "App\Http\Controllers\Admin\CategoryController");
 Route::get('social-share', [SocialShareController::class, 'index']);
 
 Route::view('about-us','aboutUs')->name('about-us');
+Route::view('category','category.index')->name('category');
 
 
 

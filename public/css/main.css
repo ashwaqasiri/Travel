@@ -7368,6 +7368,7 @@ ________________________________ */
   font-weight: 500;
   letter-spacing: normal;
   line-height: 1.75;
+  margin-top: 20px;
 }
 .custom-top{
   margin-top: 25%;
@@ -13823,7 +13824,7 @@ ________________________________ */
 }
 
 .portfolio-menu button:hover {
-  color: #fd346e;
+  color: #c39a5b;
 }
 
 /*

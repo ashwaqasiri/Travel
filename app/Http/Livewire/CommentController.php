@@ -10,15 +10,12 @@ use App\Models\Comment;
 
 class CommentController extends Component
 {
-    public Comment $comment;
     public $newComment;
     public $reply;
     public $blog;
     public $comments = [];
-
-    protected $rules = [
-        'newComment' => 'string|required|max:1000',
-      ];
+    public $replies;
+    public $newReply;
     
     protected $listeners = ['ShowComments'];  
 
@@ -32,7 +29,10 @@ class CommentController extends Component
     {
       if(Auth::check())
       {
-        $this->validate();
+        $this->validate([
+          'newComment' => 'string|required|max:1000',
+        ]);
+
         $comment = new Comment;
         $comment->user_id = Auth::user()->id;
         $comment->blog_id = $this->blog->id;
@@ -40,17 +40,39 @@ class CommentController extends Component
 
         $this->blog->comments()->save($comment);
         $this->newComment = '';
-        $this->emit('ShowComments',$this->blog->id);
+        $this->emit('ShowComments');
       }else{
         //guest
         return redirect(route('login'));
       }
     }
 
-    public function ShowComments(){
-      
-      $this->blog = Blog::find($this->blog->id);
+    public function ShowComments()
+    {
       $this->comments = $this->blog->comments;
+    }
+
+    public function addReply(Comment $comment){
+      
+      if(Auth::check())
+      {
+        $this->validate([
+          'newReply' => 'string|required|max:1000',
+        ]);
+
+        Comment::create([
+          'user_id' => Auth::id(),
+          'parent_id' => $comment->id,
+          'blog_id' => $this->blog->id,
+          'comment' => $this->newReply,
+          ]);
+
+          $this->newReply = '';
+          $this->emit('ShowComments');
+      }else{
+        //guest
+        return redirect(route('login'));
+      }
     }
 
     public function render()

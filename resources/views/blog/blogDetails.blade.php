@@ -33,14 +33,14 @@
                   {!!$shareButtons!!}
                 </ul>
               </div>
-              <div class="next-prev-btn d-flex align-items-center justify-content-between">
+              {{-- <div class=" d-flex align-items-center justify-content-between">
                 <div class="prev-btn">
                   <a class="btn-link btn-link--prev" href="#"><i class="fa fa-arrow-left"></i>prev</a>
                 </div>
                 <div class="prev-btn">
                   <a class="btn-link btn-link--next" href="#">next<i class="fa fa-arrow-right"></i></a>
                 </div>
-              </div>
+              </div> --}}
             </div>
           </div>
           <div class="col-xl-4 offset-xl-1 col-lg-5 mt-5 mt-lg-0">
@@ -61,7 +61,7 @@
                   <li class="widget__recent-post__single">
                     <a href="{{route('blogs.show',$recentBlog->id)}}">
                       <h4 class="widget__recent-post__title">{{$recentBlog->title}}</h4>
-                      <p class="widget__recent-post__date">{{ \Carbon\Carbon::parse($recentBlog->created_at)->diffForHumans() }}</p>
+                      <p class="widget__recent-post__date">{{ $recentBlog->created_at->diffForHumans() }}</p>
                     </a>
                   </li>
                   @endforeach

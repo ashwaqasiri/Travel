@@ -25,7 +25,7 @@
                       @foreach($blog->categories as $category)
                       <a class="hover-content__badge badge bg-yellow">{{$category->name}}</a>
                       @endforeach
-                      <a class="hover-content__badge badge bg-white">{{ \Carbon\Carbon::parse($blog->created_at)->diffForHumans() }}</a>
+                      <a class="hover-content__badge badge bg-white">{{ $blog->created_at->diffForHumans() }}</a>
                     </div>
                     <a href="{{route('blogs.show',$blog->id)}}" class="hover-content__title">{{$blog->title}}</a>
                     <ul class="hover-content__post-meta list-unstyled">
@@ -88,7 +88,7 @@
                   <li class="widget__recent-post__single">
                     <a href="{{route('blogs.show',$blog->id)}}">
                       <h4 class="widget__recent-post__title">{{$blog->title}}</h4>
-                      <p class="widget__recent-post__date">{{ \Carbon\Carbon::parse($blog->created_at)->diffForHumans() }}</p>
+                      <p class="widget__recent-post__date">{{ $blog->created_at->diffForHumans() }}</p>
                     </a>
                   </li>
                   @endforeach

@@ -70,7 +70,7 @@
                     @foreach($blog->categories as $category)
                     <a href="{{route('blogs.show',$blog->id)}}" class="hover-content__badge badge bg-yellow text-shark">{{$category->name}}</a>
                     @endforeach
-                    <a href="{{route('blogs.show',$blog->id)}}" class="hover-content__date">{{ \Carbon\Carbon::parse($blog->created_at)->diffForHumans() }}</a>
+                    <a href="{{route('blogs.show',$blog->id)}}" class="hover-content__date">{{$blog->created_at->diffForHumans() }}</a>
                   </div>
                   <a href="{{route('blogs.show',$blog->id)}}" class="hover-content__title">{{$blog->title}}</a>
                   <ul class="hover-content__post-meta list-unstyled">
