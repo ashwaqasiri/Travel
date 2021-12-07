@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-7">
-                    <h2 class="page-title-content__heading header-color">Categories</h2>
+                    <h2 class="page-title-content__heading header-color">Blogs</h2>
                     {{-- <p class="page-title-content__text">Our focus is always on finding the best people to work with. Our</p> --}}
                 </div>
         <div class="col-xl-6 col-lg-7 col-md-8">
@@ -16,9 +16,9 @@
         </div>
     </div>
     </div>
-    <div class="shape">
+    {{-- <div class="shape">
         <img class="w-100" src="./image/png/inner-banner-shape.png" alt="">
-    </div>
+    </div> --}}
     </div>
     <div class="portfolio-area portfolio-area--inner-1 border-bottom border-default-color-3 pt-0">
         <div class="container">
@@ -27,15 +27,15 @@
                     <div class="grid grid--l6 position-relative">
                         <!-- Single Grid -->
                         @foreach ($blogs as $blog)
-                            <div class="grid-item grid--4__single--no-gap no-gap  customer-support development customer-support">
+                            <div class="col-6 grid-item grid--4__single no-gap development customer-support">
                                 <a href="{{route('blogs.show',$blog->id)}}" class="portfolio__single no-gap ">
                                     <img class="w-100"
                                         src="{{ asset('thumbnail/'.$blog->img); }}" alt="">
                                     <div
-                                        class="portfolio__hover bg-readical-red dark-mode-texts d-xs-flex align-items-center justify-content-between">
+                                        class="portfolio__hover yellow-bg dark-mode-texts d-xs-flex align-items-center justify-content-between">
                                         <div class="hover-content">
-                                            <h3 class="portfolio__hover__heading">{{$blog->title}}</h3>
-                                            <p class="portfolio__hover__text">UX and UI, Design, Development</p>
+                                            <h3 class="portfolio__hover__heading">{{substr($blog->title,0,20)}}</h3>
+                                            <p class="portfolio__hover__text">{{substr($blog->description,0,40)}}</p>
                                         </div>
                                         <div class="hover-right">
                                             <div class="portfolio__hover__link text-white">

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Categories')
+@section('title', 'Blogs')
 @section('content')
 
     @livewire('category-controller')

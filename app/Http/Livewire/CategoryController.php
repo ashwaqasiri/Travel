@@ -11,7 +11,6 @@ class CategoryController extends Component
     public $categories;
     public $blogs = [];
 
-
     public function mount()
     {
         $this->categories = Category::get();

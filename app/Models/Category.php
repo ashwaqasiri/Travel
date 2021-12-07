@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\WithUuid;
 
-class category extends Model
+class Category extends Model
 {
     use HasFactory;
     use WithUuid;

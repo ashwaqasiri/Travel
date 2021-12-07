@@ -21,8 +21,8 @@
               <div class="footer-menu text-center">
                 <ul class="list-unstyled">
                   <li><a href="/">Home</a></li>
-                  <li><a href="#">About Us</a></li>
-                  {{-- <li><a href="#">Contact</a></li> --}}
+                  <li><a href="{{route('about-us')}}">About Us</a></li>
+                  <li><a href="{{route('category')}}">Blogs</a></li>
                 </ul>
               </div>
             </div>

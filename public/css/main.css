@@ -7283,7 +7283,7 @@ ________________________________ */
 .page-title-content {
   position: relative;
   padding-top: 60px;
-  padding-bottom: 60px;
+  /* padding-bottom: 60px; */
 }
 
 @media (min-width: 768px) {
@@ -7306,6 +7306,7 @@ ________________________________ */
   letter-spacing: normal;
   line-height: 1.4423;
   margin-bottom: 17px;
+  margin-top: 22px;
 }
 
 @media (min-width: 576px) {
@@ -16754,7 +16755,7 @@ mark[data-aos="highlight-text"].aos-animate {
 }
 
 .yellow-bg {
-  background-color: #c39a5b82;
+  background-color: #c39a5bed;
 }
 
 .purpel-bg-color{

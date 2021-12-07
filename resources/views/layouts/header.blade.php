@@ -6,12 +6,12 @@
           <div class="brand-logo">
             <a href="/">
               <!-- light version logo (logo must be black)-->
-              <img src="{{asset('image/logo--travel.png')}}" alt="" class="light-version-logo pl-2" style="width:150px;">
+              <img src="{{asset('image/logo--travel.png')}}" alt="" class="light-version-logo pl-2" style="width:130px;">
               <!-- Dark version logo (logo must be White)-->
               <img src="image/png/logo-white.png" alt="" class="dark-version-logo">
             </a>
           </div>
-          <div class="menu-block-wrapper  ms-lg-7">
+          <div class="menu-block-wrapper">
             <div class="menu-overlay"></div>
             <nav class="menu-block" id="append-menu-header">
               <div class="mobile-menu-head">
@@ -24,6 +24,10 @@
               <ul class="site-menu-main">
                 <li class="nav-item nav-item-has-children">
                   <a href="/" class="nav-link-item drop-trigger">Home </i>
+                  </a>
+                </li>
+                <li class="nav-item nav-item-has-children">
+                  <a href="{{route('category')}}" class="nav-link-item drop-trigger">Blogs</i>
                   </a>
                 </li>
                 <li class="nav-item nav-item-has-children">

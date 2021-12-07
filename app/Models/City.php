@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use App\Traits\WithUuid;
 
-class city extends Model
+class City extends Model
 {
     use HasFactory;
     use WithUuid;
