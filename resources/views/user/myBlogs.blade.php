@@ -12,7 +12,7 @@
           </div>
         </div>
         @if (session('success'))
-              <div class="alert alert-success col-xl-12 col-lg-12 mb-8 mb-lg-0" style="background-color: #9addc999 !important;">
+              <div class="alert alert-success col-8 mb-8 mb-lg-0 mx-auto" style="background-color: #9addc999 !important;">
                   {{ session('success') }}
               </div>
             @endif

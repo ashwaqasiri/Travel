@@ -4,7 +4,6 @@ namespace App\Http\Controllers\City;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use App\Models\City;
 use App\Models\Blog;
 use App\Models\category;
@@ -80,8 +79,8 @@ class CityController extends Controller
      */
     public function show($id)
     {
-        $cityBlogs = City::where('id',$id)->with('blogs')->first();
-        $blogs = $cityBlogs->blogs()->paginate(4);
+        $cityBlogs = City::findOrFail($id);
+        $blogs = $cityBlogs->blogs()->paginate(5);
         $recentBlogs = Blog::latest()->take(5)->get();
         $categories = Category::get();
 

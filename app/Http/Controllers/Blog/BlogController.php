@@ -22,8 +22,7 @@ class BlogController extends Controller
      */
     public function index()
     {   //show My Blogs (:
-        $user = Auth::user();
-       if ($user){
+       if (Auth::user()){
             return view('user.myBlogs');
         }
         return redirect("login")->withErrors('You are not allowed to access');

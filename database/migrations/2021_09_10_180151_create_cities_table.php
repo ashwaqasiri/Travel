@@ -15,10 +15,8 @@ class CreateCitiesTable extends Migration
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            // $table->uuid('blog_id')->nullable();
-            // $table->foreign('blog_id')->references('id')->on('blogs')->onDelete('cascade');
             $table->string('name');
-            $table->string('region')->nullable();
+            $table->string('region');
             $table->timestamps();
             $table->softDeletes();
         });
